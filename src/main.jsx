@@ -5,10 +5,18 @@ import "./styles.css";
 
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
-    navigator.serviceWorker.register("/sw.js").catch(() => {});
+    navigator.serviceWorker
+      .register("/wordle-clone/sw.js", {
+        scope: "/wordle-clone/",
+      })
+      .catch((error) => {
+        console.error("Service worker registration failed:", error);
+      });
   });
 }
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode><App /></React.StrictMode>
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
 );
