@@ -1,10 +1,11 @@
 {
   "name": "Wordle Clone",
   "short_name": "Wordle",
-  "start_url": "/",
+  "description": "A private offline Wordle game",
+  "start_url": "/wordle-clone/",
+  "scope": "/wordle-clone/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#ffffff",
-  "description": "An offline Wordle clone with 4, 5, and 6 letter modes.",
-  "icons": []
+  "orientation": "portrait",
+  "theme_color": "#111827",
+  "background_color": "#111827"
 }
