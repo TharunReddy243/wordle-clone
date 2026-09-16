@@ -1,0 +1,10 @@
+{
+  "name": "Wordle Clone",
+  "short_name": "Wordle",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "description": "An offline Wordle clone with 4, 5, and 6 letter modes.",
+  "icons": []
+}
