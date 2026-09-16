@@ -166,7 +166,7 @@ export default function App() {
             <span className="brand-tile present">L</span>
             <span className="brand-tile absent">E</span>
           </div>
-          <div className="brand">WORDLE</div>
+          <div className="brand">WORDLE V1</div>
           <p className="subtitle">Offline word game</p>
           <h1>Choose your game</h1>
           <div className="mode-list">
