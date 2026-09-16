@@ -1,4 +1,4 @@
-const CACHE_NAME = "wordle-clone-v1";
+const CACHE_NAME = "wordle-clone-v2";
 const BASE_PATH = "/wordle-clone/";
 
 const APP_FILES = [
@@ -22,7 +22,28 @@ self.addEventListener("activate", (event) => {
 self.addEventListener("fetch", (event) => {
   if (event.request.method !== "GET") return;
 
-  event.respondWith(
-    fetch(event.request).catch(() => caches.match(event.request))
-  );
+  event.respondWith(handleRequest(event.request));
 });
+
+async function handleRequest(request) {
+  const cached = await caches.match(request);
+
+  try {
+    const response = await fetch(request);
+
+    if (response.ok) {
+      const cache = await caches.open(CACHE_NAME);
+      await cache.put(request, response.clone());
+    }
+
+    return response;
+  } catch {
+    if (cached) return cached;
+
+    if (request.mode === "navigate") {
+      return caches.match(`${BASE_PATH}index.html`);
+    }
+
+    return Response.error();
+  }
+}
